@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J. Thaman Adithya's Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <style>
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 255, 170, 0.2);
+            filter: blur(60px);
+            animation: floating 15s infinite ease-in-out;
+            z-index: -2;
+        }
+        @keyframes floating {
+            0%, 100% { transform: scale(1) translateY(0); }
+            50% { transform: scale(1.1) translateY(-20px); }
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            margin: 1rem 0;
+        }
+
+        nav a {
+            color: #00ffaa;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            position: relative;
+            overflow: hidden;
+        }
+        nav a:hover {
+            color: #fff;
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(0,255,170,0.5);
+        }
+        
+        nav a:active {
+            transform: scale(0.95);
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: -100%;
+            background: #00ffaa;
+            transition: all 0.3s ease;
+        }
+        nav a:hover::before {
+            left: 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease;
+        }
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            border-bottom: 2px solid #00ffaa;
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="scene-container"></div>
+    <div class="circle" style="width: 500px; height: 500px; top: -200px; left: -200px;"></div>
+    <div class="circle" style="width: 300px; height: 300px; bottom: -100px; right: -100px;"></div>
+    <header>
+        <h1>J. Thaman Adithya</h1>
+        <nav>
+            <a href="#profile">Profile</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+        </nav>
+    </header>
+
+    <section id="profile">
+        <h2>Profile</h2>
+        <p>Motivated engineering student with hands-on experience in building modern web applications and software tools. Proficient in object-oriented programming, algorithms, and frontend development. Strong problem-solving skills and adaptability, with a focus on writing clean and efficient code.</p>
+        <div class="contact-info">
+            <p>Email: thamanjamalpuradithya@gmail.com</p>
+            <p>Phone: +91-9182514248</p>
+            <p>GitHub: <a href="https://github.com/ThamanAdithya" target="_blank">github.com/ThamanAdithya</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/j-thaman-adithya-204935309" target="_blank">linkedin.com/in/j-thaman-adithya-204935309</a></p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p>B.Tech in Information Technology, Teegala Krishna Reddy Engineering College — Expected: 2026</p>
+        <p>Relevant Courses: Data Structures & Algorithms, Web Development, DBMS, Operating Systems, Software Engineering</p>
+        <p>Diploma in Mechanical Engineering, Sree Dattha Institute of Engineering and Science — 2020–2023</p>
+    </section>
+
+    <section id="experience">
+        <h2>Internship Experience</h2>
+        <div class="project">
+            <h3>Developer Intern — EY GDS AICTE (Remote) Feb 2025 – Mar 2025</h3>
+            <ul>
+                <li>Built responsive web applications using React to improve UI performance.</li>
+                <li>Developed RESTful APIs and ensured smooth integration between frontend and backend.</li>
+                <li>Collaborated in Agile teams, used Git for version control, and conducted peer reviews.</li>
+            </ul>
+        </div>
+        <div class="project">
+            <h3>Data Science & ML Intern — YBI Foundation Sep 2024</h3>
+            <ul>
+                <li>Learned machine learning basics and data analysis using Python and Scikit-learn.</li>
+                <li>Built models for prediction and classification using real datasets.</li>
+                <li>Gained exposure to complete data science workflow from preprocessing to model evaluation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Portfolio Website</h3>
+                <p>Built a modern, animated portfolio site to showcase personal projects and skills. Integrated smooth scrolling, interactive elements, and responsive layout to enhance user experience.</p>
+            </div>
+            <div class="project">
+                <h3>Freelancing Platform Web App</h3>
+                <p>Developed a full-featured freelance marketplace with user authentication, gig posting, search filtering, and admin panel. Used Flask for backend logic and MongoDB for scalable data storage.</p>
+            </div>
+            <div class="project">
+                <h3>Language Translator App</h3>
+                <p>Created a multilingual text translator supporting over 100 languages. Integrated Google Translate API with Flask backend, used NLTK for text preprocessing, and designed a simple web UI for user interaction.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p>Languages: Java, Python, JavaScript, SQL, HTML, CSS</p>
+        <p>Frameworks/Tools: React.js, Flask, Git</p>
+        <p>Databases: MongoDB, MySQL</p>
+        <p>Other: OOP, DSA, Agile</p>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>EY GDS AICTE — Modern Web Applications with React (Feb–Mar 2025)</li>
+            <li>Infosys — Core Java Certification</li>
+            <li>Accenture Developer Program</li>
+            <li>JPMorganChase Software Engineering Job Simulation participation certificates</li>
+        </ul>
+    </section>
+    <script>
+        // Initialize 3D scene with cursor tracking
+        let mouseX = 0;
+        let mouseY = 0;
+        const container = document.getElementById('scene-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        // Add floating abstract shapes
+        const geometry = new THREE.SphereGeometry(0.5, 16, 16);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x00ffaa,
+            transparent: true,
+            opacity: 0.8
+        });
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x00ffaa,
+            transparent: true,
+            opacity: 0.3
+        });
+
+        const shapes = [];
+        // Create balls
+        for(let i=0; i<30; i++) {
+            const ball = new THREE.Mesh(geometry, material);
+            ball.position.set(
+                (Math.random() - 0.5) * 30,
+                (Math.random() - 0.5) * 30,
+                (Math.random() - 0.5) * 30
+            );
+            shapes.push(ball);
+            scene.add(ball);
+        }
+
+        // Create connections
+        const connections = [];
+        for(let i=0; i<shapes.length; i++) {
+            for(let j=i+1; j<shapes.length; j++) {
+                const distance = shapes[i].position.distanceTo(shapes[j].position);
+                if(distance < 10) {
+                    const connection = new THREE.Line(
+                        new THREE.BufferGeometry().setFromPoints([
+                            shapes[i].position,
+                            shapes[j].position
+                        ]),
+                        lineMaterial
+                    );
+                    connections.push({
+                        line: connection,
+                        ball1: shapes[i],
+                        ball2: shapes[j]
+                    });
+                    scene.add(connection);
+                }
+            }
+        }
+
+        camera.position.z = 20;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const cursorPosition = new THREE.Vector3(mouseX * 20, mouseY * 20, 0);
+            const time = Date.now() * 0.001;
+
+            // Update balls
+            shapes.forEach((ball, i) => {
+                // Calculate distance to cursor
+                const distToCursor = ball.position.distanceTo(cursorPosition);
+                
+                // Repel from cursor
+                if(distToCursor < 8) {
+                    const repelForce = (8 - distToCursor) * 0.08;
+                    const dir = new THREE.Vector3().subVectors(ball.position, cursorPosition).normalize();
+                    ball.position.add(dir.multiplyScalar(repelForce));
+                }
+
+                // Gentle floating motion
+                ball.position.z = Math.sin(time + i) * 3;
+            });
+
+            // Update connections
+            connections.forEach(conn => {
+                const points = [];
+                points.push(conn.ball1.position.clone());
+                points.push(conn.ball2.position.clone());
+                conn.line.geometry.dispose();
+                conn.line.geometry = new THREE.BufferGeometry().setFromPoints(points);
+            });
+
+            renderer.render(scene, camera);
+        }
+        // Enhanced cursor tracking
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+        
+        animate();
+
+        // Scroll animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    gsap.from(entry.target.querySelectorAll('h2, p, li'), {
+                        opacity: 0,
+                        y: 20,
+                        duration: 0.5,
+                        stagger: 0.1
+                    });
+                }
+            });
+        }, {threshold: 0.1});
+        sections.forEach(section => observer.observe(section));
+
+        // Floating text animation
+        gsap.to('header h1', {
+            y: 10,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+
+        // Make responsive
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
